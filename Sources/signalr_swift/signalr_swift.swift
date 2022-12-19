@@ -3,7 +3,7 @@ import SignalRClient
 
 public class SignalRService {
     private var connection: HubConnection
-    private var connectionUrl: URL? = URL(string: "https://192.168.1.7:7007/Chat")
+    private var connectionUrl: URL? = URL(string: "http://192.168.1.7:7007/Chat")
     
     public init() {
         connection = HubConnectionBuilder(url: connectionUrl!).withLogging(minLogLevel: .error).build()
