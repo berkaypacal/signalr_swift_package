@@ -7,7 +7,7 @@ public class SignalRService {
     
     public init() {
         connection = HubConnectionBuilder(url: connectionUrl!).withLogging(minLogLevel: .error).build()
-        connection.on(method: "BroadcastMessage", callback: { (message: String) in
+        connection.on(method: "BroadcastMessage", callback: { (message: MessageModel) in
             do {
                 self.handleMessage(message)
             }
@@ -16,8 +16,22 @@ public class SignalRService {
         connection.start()
     }
     
-    private func handleMessage(_ message: String) {
-        print(message)
+    private func handleMessage(_ message: MessageModel) {
+        print(message.message)
+        print(message.connectionID)
+
         
+    }
+}
+
+
+import Foundation
+
+struct MessageModel: Codable {
+    let message, connectionID: String
+
+    enum CodingKeys: String, CodingKey {
+        case message
+        case connectionID = "connectionId"
     }
 }
