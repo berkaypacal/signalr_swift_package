@@ -12,6 +12,7 @@ struct MessageItemView: View {
     var contentMessage: String
     var isCurrentUser: Bool
     
+
     var body: some View {
         Text(contentMessage)
             .padding(10)
