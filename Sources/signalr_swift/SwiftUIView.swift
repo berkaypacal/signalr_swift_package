@@ -12,7 +12,7 @@ public struct ChatView: View {
     @StateObject public var chatVM: SignalRService = SignalRService()
     @State public var typingMessage: String = ""
     
-    init() {
+    public init() {
         UITableView.appearance().separatorStyle = .none
 
     }
