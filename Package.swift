@@ -15,7 +15,6 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/moozzyk/SignalR-Client-Swift", .upToNextMinor(from: "0.6.0")),
-        .package(url:"https://github.com/elai950/AlertToast", .upToNextMajor(from: "1.3.7"))
     ],
     targets: [
 
@@ -23,6 +22,6 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "signalr_swift",
-            dependencies: [.product(name: "SignalRClient",package: "SignalR-Client-Swift"),"AlertToast"]),
+            dependencies: [.product(name: "SignalRClient",package: "SignalR-Client-Swift")]),
     ]
 )
