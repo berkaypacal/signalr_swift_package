@@ -11,7 +11,7 @@ import SwiftUI
 public struct ChatView: View {
     @StateObject public var chatVM: SignalRService = SignalRService()
     @State public var typingMessage: String = ""
-
+    @State private var isAlertShow: Bool = false
 
     public init() { }
 
@@ -42,6 +42,8 @@ public struct ChatView: View {
 
                 }
             }.frame(minHeight: CGFloat(50)).padding()
+        }.alert(isPresented: $chatVM.isPresented) {
+            Alert(title: Text("New Message"))
         }
     }
 }

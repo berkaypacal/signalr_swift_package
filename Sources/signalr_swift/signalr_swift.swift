@@ -6,6 +6,7 @@ public class SignalRService: ObservableObject {
     public var connection: HubConnection
     private var connectionUrl: URL? = URL(string: "http://192.168.1.7:7007/Chat")
     @Published var messageList: [MessageModel] = []
+    @Published var isPresented: Bool = false
 
 
 
@@ -21,10 +22,11 @@ public class SignalRService: ObservableObject {
     }
 
     private func handleMessage(message: MessageModel) {
-        print(message.message)
-        print(message.connectionID)
-
+      
         messageList.append(message)
+        if(message.connectionID != connection.connectionId!){
+            isPresented = true
+        }
 
         
 
