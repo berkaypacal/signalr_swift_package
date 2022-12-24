@@ -11,11 +11,13 @@ import BetterSafariView
 public class FacebookViewModel: ObservableObject {
     
     @Published public var webAuthServiceStatus: Bool = false
-
     
-    public func LoginWithFacebook () -> WebAuthenticationSession {
-        let url: URL = URL(string: "https://sdk-fb-web-iszq.vercel.app")!
-        return WebAuthenticationSession(url: url, callbackURLScheme: "payt") { (callbackURL, error) in
+    
+   
+    
+    public func LoginWithFacebook (redirect: String) -> WebAuthenticationSession {
+        let url: URL = URL(string: "https://sdk-fb-web-iszq.vercel.app/?redirect="+redirect)!
+        return WebAuthenticationSession(url: url, callbackURLScheme: redirect) { (callbackURL, error) in
             self.getAccessCode(url: callbackURL) { isSuccess, value in
                 print(callbackURL)
                 if(isSuccess) {
@@ -24,6 +26,7 @@ public class FacebookViewModel: ObservableObject {
             }
         }.prefersEphemeralWebBrowserSession(true)
     }
+    
     
     public func getAccessCode(url: URL?, completion: @escaping (Bool, String?) -> Void) {
         guard url != nil else {
