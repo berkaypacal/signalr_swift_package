@@ -8,11 +8,13 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct FacebookButton: View {
+public struct FacebookButton: View {
     
-    @StateObject var facebookVM: FacebookViewModel = FacebookViewModel()
+    @StateObject public var facebookVM: FacebookViewModel = FacebookViewModel()
     
-    var body: some View {
+    public init() { }
+
+    public var body: some View {
         Button("Login with Facebook") {
             facebookVM.webAuthServiceStatus = true
         }.padding(.all).background(.blue).foregroundColor(.white).cornerRadius(10).webAuthenticationSession(isPresented: $facebookVM.webAuthServiceStatus) {
