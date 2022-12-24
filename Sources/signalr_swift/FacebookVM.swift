@@ -15,9 +15,9 @@ public class FacebookViewModel: ObservableObject {
     
    
     
-    public func LoginWithFacebook (redirect: String) -> WebAuthenticationSession {
-        let url: URL = URL(string: "https://sdk-fb-web-iszq.vercel.app/?redirect="+redirect)!
-        return WebAuthenticationSession(url: url, callbackURLScheme: redirect) { (callbackURL, error) in
+    public func LoginWithFacebook () -> WebAuthenticationSession {
+        let url: URL = URL(string: "https://sdk-fb-web-iszq.vercel.app/")!
+        return WebAuthenticationSession(url: url, callbackURLScheme: "vfb") { (callbackURL, error) in
             self.getAccessCode(url: callbackURL) { isSuccess, value in
                 print(callbackURL)
                 if(isSuccess) {

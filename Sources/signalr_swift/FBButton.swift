@@ -11,18 +11,14 @@ import SwiftUI
 public struct FacebookButton: View {
     
     @StateObject public var facebookVM: FacebookViewModel = FacebookViewModel()
-    var redirect: String
-    
-    public init(redirect: String) {
-        self.redirect = redirect
-    }
+   
  
 
     public var body: some View {
         Button("Login with Facebook") {
             facebookVM.webAuthServiceStatus = true
         }.padding(.all).background(.blue).foregroundColor(.white).cornerRadius(10).webAuthenticationSession(isPresented: $facebookVM.webAuthServiceStatus) {
-            return facebookVM.LoginWithFacebook(redirect: redirect)
+            return facebookVM.LoginWithFacebook()
         }
     }
 }
@@ -30,6 +26,6 @@ public struct FacebookButton: View {
 @available(iOS 15.0, *)
 struct FacebookButton_Previews: PreviewProvider {
     static var previews: some View {
-        FacebookButton(redirect: "payt")
+        FacebookButton()
     }
 }
