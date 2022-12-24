@@ -19,7 +19,7 @@ public class FacebookViewModel: ObservableObject {
             self.getAccessCode(url: callbackURL) { isSuccess, value in
                 print(callbackURL)
                 if(isSuccess) {
-                    
+                    print(value)
                 }
             }
         }.prefersEphemeralWebBrowserSession(true)
