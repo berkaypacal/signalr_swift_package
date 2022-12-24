@@ -1,5 +1,5 @@
 //
-//  SwiftUIView 2.swift
+//  messageItemView.swift
 //  
 //
 //  Created by Berkay Paçal on 12/19/22.

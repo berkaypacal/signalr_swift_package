@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  ChatView.swift
 //
 //
 //  Created by Berkay Paçal on 12/19/22.

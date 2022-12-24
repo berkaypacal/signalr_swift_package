@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "signalr_swift",
+    platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -15,6 +16,8 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/moozzyk/SignalR-Client-Swift", .upToNextMinor(from: "0.6.0")),
+        .package(url: "https://github.com/stleamist/BetterSafariView.git", .upToNextMajor(from: "2.4.0"))
+
     ],
     targets: [
 
@@ -22,6 +25,6 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "signalr_swift",
-            dependencies: [.product(name: "SignalRClient",package: "SignalR-Client-Swift")]),
+            dependencies: [.product(name: "SignalRClient",package: "SignalR-Client-Swift"),"BetterSafariView"]),
     ]
 )

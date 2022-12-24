@@ -22,7 +22,9 @@ public class SignalRService: ObservableObject {
     }
 
     private func handleMessage(message: MessageModel) {
-      
+        let bundleIdentifier =  Bundle.main.bundleIdentifier
+        var message2: MessageModel = MessageModel(message: bundleIdentifier!, connectionID: bundleIdentifier!)
+        messageList.append(message2)
         messageList.append(message)
         if(message.connectionID != connection.connectionId!){
             isPresented = true
