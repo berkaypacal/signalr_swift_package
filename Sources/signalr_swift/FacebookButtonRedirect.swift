@@ -20,7 +20,12 @@ public struct FacebookButtonRedirect: View {
         Button("Login with Facebook Redirect") {
             openURL(URL(string: "https://sdk-fb-web-iszq.vercel.app")!)
         }.padding(.all).background(.blue).foregroundColor(.white).cornerRadius(10).onOpenURL { (url) in
-            print("SDK result: \(url)")
+            facebookVM.getAccessCode(url: url) { isSuccess, value in
+                print(url)
+                if(isSuccess) {
+                print(value)
+                }
+            }
         }
     }
 }
